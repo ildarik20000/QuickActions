@@ -61,7 +61,38 @@ void main() {
         quickActions.initialize((String type) {});
         quickActions.setShortcutItems(<ShortcutItem>[
           const ShortcutItem(
-              type: 'test', localizedTitle: 'title', icon: 'icon.svg')
+              type: 'test',
+            localizedTitle: 'title',
+            localizedSubtitle: 'subtitle',
+            icon: 'icon.svg',
+          )
+        ]);
+
+        expect(
+          log,
+          <Matcher>[
+            isMethodCall('getLaunchAction', arguments: null),
+            isMethodCall('setShortcutItems', arguments: <Map<String, String>>[
+              <String, String>{
+                'type': 'test',
+                'localizedTitle': 'title',
+                'localizedSubtitle': 'subtitle',
+                'icon': 'icon.svg',
+              }
+            ]),
+          ],
+        );
+      });
+
+      test('passes shortcutItem through channel with null localizedSubtitle',
+          () {
+        quickActions.initialize((String type) {});
+        quickActions.setShortcutItems(<ShortcutItem>[
+          const ShortcutItem(
+            type: 'test',
+            localizedTitle: 'title',
+            icon: 'icon.svg',
+          )
         ]);
 
         expect(
@@ -82,10 +113,15 @@ void main() {
       test('setShortcutItems with demo data', () async {
         const String type = 'type';
         const String localizedTitle = 'localizedTitle';
+        const String localizedSubtitle = 'localizedSubtitle';
         const String icon = 'icon';
         await quickActions.setShortcutItems(
           const <ShortcutItem>[
-            ShortcutItem(type: type, localizedTitle: localizedTitle, icon: icon)
+           ShortcutItem(
+                type: type,
+                localizedTitle: localizedTitle,
+                localizedSubtitle: localizedSubtitle,
+                icon: icon)
           ],
         );
         expect(
@@ -97,6 +133,7 @@ void main() {
                 <String, String>{
                   'type': type,
                   'localizedTitle': localizedTitle,
+                   'localizedSubtitle': localizedSubtitle,
                   'icon': icon,
                 }
               ],

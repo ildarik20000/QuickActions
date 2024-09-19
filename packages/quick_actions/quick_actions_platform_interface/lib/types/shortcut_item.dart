@@ -11,6 +11,7 @@ class ShortcutItem {
   const ShortcutItem({
     required this.type,
     required this.localizedTitle,
+     this.localizedSubtitle,
     this.icon,
   });
 
@@ -19,6 +20,8 @@ class ShortcutItem {
 
   /// Localized title of the item.
   final String localizedTitle;
+
+  final String? localizedSubtitle;
 
   /// Name of native resource (xcassets etc; NOT a Flutter asset) to be
   /// displayed as the icon for this item.

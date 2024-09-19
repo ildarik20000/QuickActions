@@ -59,9 +59,7 @@ private func wrapError(_ error: Any) -> [Any?] {
 }
 
 private func createConnectionError(withChannelName channelName: String) -> PigeonError {
-  return PigeonError(
-    code: "channel-error", message: "Unable to establish connection on channel: '\(channelName)'.",
-    details: "")
+  return return PigeonError(code: "channel-error", message: "Unable to establish connection on channel: '\(channelName)'.", details: "")
 }
 
 private func isNullish(_ value: Any?) -> Bool {
@@ -81,6 +79,8 @@ struct ShortcutItemMessage {
   var type: String
   /// Localized title of the item.
   var localizedTitle: String
+   /// Localized subtitle of the item.
+  var localizedSubtitle: String? = 
   /// Name of native resource to be displayed as the icon for this item.
   var icon: String? = nil
 
@@ -88,11 +88,13 @@ struct ShortcutItemMessage {
   static func fromList(_ __pigeon_list: [Any?]) -> ShortcutItemMessage? {
     let type = __pigeon_list[0] as! String
     let localizedTitle = __pigeon_list[1] as! String
-    let icon: String? = nilOrValue(__pigeon_list[2])
+    let localizedSubtitle: String? = nilOrValue(__pigeon_list[2])
+    let icon: String? = nilOrValue(__pigeon_list[3])
 
     return ShortcutItemMessage(
       type: type,
       localizedTitle: localizedTitle,
+      localizedSubtitle: localizedSubtitle,
       icon: icon
     )
   }
@@ -100,6 +102,7 @@ struct ShortcutItemMessage {
     return [
       type,
       localizedTitle,
+       localizedSubtitle,
       icon,
     ]
   }
