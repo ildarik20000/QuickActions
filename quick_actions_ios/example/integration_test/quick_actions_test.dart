@@ -16,6 +16,7 @@ void main() {
     const ShortcutItem shortCutItem = ShortcutItem(
       type: 'action_one',
       localizedTitle: 'Action one',
+      localizedSubtitle:"test",
       icon: 'AppIcon',
     );
     expect(

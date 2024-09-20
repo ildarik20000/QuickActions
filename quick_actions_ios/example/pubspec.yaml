@@ -25,10 +25,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-
-  dependency_overrides:
-    {
-      quick_actions_ios: { path: ../../../quick_actions/quick_actions_ios },
-      quick_actions_platform_interface:
-        { path: ../../../quick_actions/quick_actions_platform_interface },
-    }

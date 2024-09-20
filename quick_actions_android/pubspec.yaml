@@ -5,8 +5,8 @@ issue_tracker: https://github.com/flutter/flutter/issues?q=is%3Aissue+is%3Aopen+
 version: 1.0.15
 
 environment:
-  sdk: ^3.4.0
-  flutter: ">=3.22.0"
+  sdk: ^3.3.0
+  flutter: ">=3.19.0"
 
 flutter:
   plugin:
@@ -33,9 +33,3 @@ dev_dependencies:
 topics:
   - quick-actions
   - os-integration
-
-dependency_overrides:
-  {
-    quick_actions_platform_interface:
-      { path: ../../quick_actions/quick_actions_platform_interface },
-  }
