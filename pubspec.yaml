@@ -21,8 +21,12 @@ dependencies:
   flutter:
     sdk: flutter
   quick_actions_android: ^1.0.0
-  quick_actions_ios: ^1.0.0
-  quick_actions_platform_interface: ^1.0.0
+  quick_actions_ios:
+    git:
+      url: https://github.com/ildarik20000/quick_ios.git
+  quick_actions_platform_interface:
+    git:
+      url: https://github.com/ildarik20000/quick_interface.git
 
 dev_dependencies:
   flutter_test:
